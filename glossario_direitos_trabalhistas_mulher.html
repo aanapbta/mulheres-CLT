@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seus Direitos no Trabalho — Glossário</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    --vermelho: #c0392b;
+    --vermelho-claro: #f8e8e7;
+    --azul: #1a1a2e;
+    --azul-medio: #2c2c4a;
+    --cinza: #6b6b80;
+    --cinza-claro: #f4f4f6;
+    --branco: #ffffff;
+    --borda: #e2e2ea;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cinza-claro);
+    color: var(--azul);
+    line-height: 1.6;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--azul);
+    color: var(--branco);
+    padding: 56px 24px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '§';
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-size: 320px;
+    color: rgba(255,255,255,0.04);
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: var(--vermelho);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 6vw, 48px);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero h1 span { color: #e8a0a0; }
+
+  .hero p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    max-width: 480px;
+    margin: 0 auto 28px;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #e8a0a0;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── BUSCA ── */
+  .search-bar {
+    background: var(--branco);
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--borda);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .search-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .search-inner input {
+    width: 100%;
+    padding: 12px 44px 12px 16px;
+    border: 2px solid var(--borda);
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    color: var(--azul);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .search-inner input:focus { border-color: var(--vermelho); }
+
+  .search-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--cinza);
+    font-size: 16px;
+    pointer-events: none;
+  }
+
+  /* ── FILTROS ── */
+  .filtros {
+    max-width: 760px;
+    margin: 24px auto 0;
+    padding: 0 24px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .filtro-btn {
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1.5px solid var(--borda);
+    background: var(--branco);
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    color: var(--cinza);
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+
+  .filtro-btn:hover, .filtro-btn.ativo {
+    background: var(--vermelho);
+    border-color: var(--vermelho);
+    color: white;
+  }
+
+  /* ── LISTA ── */
+  .container {
+    max-width: 760px;
+    margin: 24px auto 60px;
+    padding: 0 24px;
+  }
+
+  .secao-letra {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--vermelho);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 32px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--vermelho);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card {
+    background: var(--branco);
+    border-radius: 10px;
+    border: 1px solid var(--borda);
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.18s;
+  }
+
+  .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+
+  .card-header {
+    padding: 16px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    user-select: none;
+  }
+
+  .card-header-left { flex: 1; }
+
+  .card-termo {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--azul);
+    margin-bottom: 3px;
+  }
+
+  .card-preview {
+    font-size: 12px;
+    color: var(--cinza);
+  }
+
+  .card-tag {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .tag-gestante { background: #e8f5e9; color: #2e7d32; }
+  .tag-assedio { background: #fce4ec; color: #c62828; }
+  .tag-salario { background: #e3f2fd; color: #1565c0; }
+  .tag-demissao { background: #fff3e0; color: #e65100; }
+  .tag-geral { background: #f3e5f5; color: #6a1b9a; }
+
+  .card-chevron {
+    color: var(--cinza);
+    font-size: 12px;
+    transition: transform 0.2s;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+
+  .card.aberto .card-chevron { transform: rotate(180deg); }
+
+  .card-body {
+    display: none;
+    padding: 0 20px 20px;
+    border-top: 1px solid var(--cinza-claro);
+  }
+
+  .card.aberto .card-body { display: block; }
+
+  .definicao {
+    font-size: 14px;
+    color: var(--azul);
+    line-height: 1.7;
+    margin-bottom: 12px;
+    padding-top: 14px;
+  }
+
+  .exemplo {
+    background: var(--vermelho-claro);
+    border-left: 3px solid var(--vermelho);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: #7b1a12;
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+
+  .exemplo strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; color: var(--vermelho); }
+
+  .lei-ref {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--cinza);
+    background: var(--cinza-claro);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  /* ── NENHUM RESULTADO ── */
+  .vazio {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--cinza);
+    display: none;
+  }
+
+  .vazio p { font-size: 15px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--azul);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  footer strong { color: white; }
+
+  @media (max-width: 480px) {
+    .hero { padding: 40px 20px 36px; }
+    .container { padding: 0 16px; }
+    .filtros { padding: 0 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-tag">por Ana Paula Batista · @anapbta</div>
+  <h1>Seus direitos<br>no trabalho, <span>sem juridiquês</span></h1>
+  <p>Glossário jurídico para mulheres trabalhadoras — linguagem simples, fontes legais, exemplos reais.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">24</span><span class="stat-label">Termos</span></div>
+    <div class="stat"><span class="stat-num">4</span><span class="stat-label">Categorias</span></div>
+    <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Gratuito</span></div>
+  </div>
+</header>
+
+<!-- BUSCA -->
+<div class="search-bar">
+  <div class="search-inner">
+    <input type="text" id="busca" placeholder="Buscar termo... ex: assédio, licença, salário" oninput="filtrar()">
+    <span class="search-icon">🔍</span>
+  </div>
+</div>
+
+<!-- FILTROS -->
+<div class="filtros">
+  <button class="filtro-btn ativo" onclick="filtrarCategoria('todos', this)">Todos</button>
+  <button class="filtro-btn" onclick="filtrarCategoria('gestante', this)">🤱 Gestante</button>
+  <button class="filtro-btn" onclick="filtrarCategoria('assedio', this)">🚨 Assédio</button>
+  <button class="filtro-btn" onclick="filtrarCategoria('salario', this)">💰 Salário</button>
+  <button class="filtro-btn" onclick="filtrarCategoria('demissao', this)">📋 Demissão</button>
+  <button class="filtro-btn" onclick="filtrarCategoria('geral', this)">⚖️ Geral</button>
+</div>
+
+<!-- GLOSSÁRIO -->
+<main class="container">
+  <div id="lista"></div>
+  <div class="vazio" id="vazio"><p>Nenhum termo encontrado. Tente outra palavra.</p></div>
+</main>
+
+<footer>
+  <strong>Direitos Trabalhistas da Mulher</strong><br>
+  por Ana Paula Batista · @anapbta<br>
+  Fontes: CLT (Decreto-Lei 5.452/1943) · Lei 14.611/2023 · Lei 9.029/1995 · Lei 11.340/2006
+</footer>
+
+<script>
+const termos = [
+  // ── GESTANTE ──
+  {
+    termo: "Estabilidade da gestante",
+    categoria: "gestante",
+    preview: "Proteção contra demissão durante a gravidez",
+    definicao: "A mulher grávida não pode ser demitida sem justa causa desde a confirmação da gravidez até cinco meses após o parto. Essa proteção vale mesmo que a empresa não saiba da gravidez — o que importa é o fato biológico, não a comunicação formal.",
+    exemplo: "Você descobriu que está grávida após ser demitida. Se a gravidez já existia na data da demissão, você tem direito à reintegração ou indenização equivalente.",
+    lei: "Art. 10, II, b, ADCT · Súmula 244, TST"
+  },
+  {
+    termo: "Licença-maternidade",
+    categoria: "gestante",
+    preview: "Afastamento remunerado após o parto",
+    definicao: "Direito a 120 dias de afastamento remunerado após o parto, adoção ou guarda judicial de criança. Empresas que participam do Programa Empresa Cidadã podem estender para 180 dias. Durante esse período, o salário é pago pelo INSS.",
+    exemplo: "Seu empregador não pode exigir que você trabalhe durante a licença-maternidade nem descontar os dias de ausência do seu salário.",
+    lei: "Art. 392, CLT · Lei 11.770/2008"
+  },
+  {
+    termo: "Salário-maternidade",
+    categoria: "gestante",
+    preview: "Benefício pago pelo INSS durante a licença",
+    definicao: "Benefício previdenciário equivalente ao salário da trabalhadora, pago pelo INSS durante os 120 dias de licença-maternidade. Para empregadas CLT, o valor é antecipado pelo empregador e depois compensado com o INSS.",
+    exemplo: "Se sua empresa demorar a pagar o salário durante sua licença, você pode notificar o INSS diretamente e solicitar o pagamento pelo órgão.",
+    lei: "Art. 71 a 73, Lei 8.213/1991"
+  },
+  {
+    termo: "Intervalo para amamentação",
+    categoria: "gestante",
+    preview: "Pausas garantidas durante o expediente",
+    definicao: "A trabalhadora que amamenta tem direito a dois intervalos de 30 minutos por dia durante a jornada de trabalho, até que o filho complete 6 meses. Esses intervalos são remunerados — não podem ser descontados do salário.",
+    exemplo: "Sua chefia não pode negar as pausas para amamentação nem compensá-las no final do expediente.",
+    lei: "Art. 396, CLT"
+  },
+  {
+    termo: "Proteção contra trabalho insalubre na gravidez",
+    categoria: "gestante",
+    preview: "Direito de ser afastada de ambiente de risco",
+    definicao: "A gestante deve ser afastada de atividades insalubres — que envolvam agentes químicos, físicos ou biológicos prejudiciais — enquanto durar a gravidez e a lactação, sem redução de salário.",
+    exemplo: "Se você trabalha com produtos químicos, radiação ou em ambientes de alto ruído, tem direito a ser realocada para função compatível com a gravidez.",
+    lei: "Art. 394-A, CLT"
+  },
+
+  // ── ASSÉDIO ──
+  {
+    termo: "Assédio moral",
+    categoria: "assedio",
+    preview: "Humilhação ou pressão psicológica repetida no trabalho",
+    definicao: "Conduta abusiva, repetitiva e intencional que degrada as condições de trabalho de uma pessoa — por meio de humilhações, isolamento, pressão excessiva, críticas constantes sem fundamento ou ameaças veladas. Precisa ser contínuo, não um episódio isolado.",
+    exemplo: "Seu superior te ignora em reuniões, atribui tarefas humilhantes ou faz comentários depreciativos na frente de colegas com frequência. Isso é assédio moral.",
+    lei: "Art. 483, CLT · Resolução 351/2020, CNJ"
+  },
+  {
+    termo: "Assédio sexual",
+    categoria: "assedio",
+    preview: "Avanço sexual indesejado com abuso de poder",
+    definicao: "Constranger alguém com o intuito de obter vantagem ou favorecimento sexual, usando posição de hierarquia ou ascendência. Inclui comentários, gestos, toques não consentidos e propostas com ameaça implícita ou explícita de consequências profissionais.",
+    exemplo: "Um gestor insinua que sua promoção depende de encontros fora do trabalho. Isso é assédio sexual e crime, independentemente de você aceitar ou recusar.",
+    lei: "Art. 216-A, Código Penal · Art. 483, CLT"
+  },
+  {
+    termo: "Ambiente de trabalho hostil",
+    categoria: "assedio",
+    preview: "Quando o espaço de trabalho é degradante ou intimidador",
+    definicao: "Situação em que piadas ofensivas, comentários discriminatórios, imagens inadequadas ou comportamentos intimidadores tornam o ambiente de trabalho humilhante para um grupo — especialmente mulheres. Pode configurar assédio mesmo sem hierarquia entre as partes.",
+    exemplo: "Colegas fazem piadas sexistas repetidamente e a empresa não toma providências quando você reporta. O silêncio da empresa também é sua responsabilidade.",
+    lei: "Art. 483, CLT · Lei 9.029/1995"
+  },
+  {
+    termo: "Denúncia interna de assédio",
+    categoria: "assedio",
+    preview: "Como reportar assédio dentro da empresa",
+    definicao: "Toda empresa deve ter um canal para receber denúncias de assédio — RH, ouvidoria ou comitê de ética. A denúncia pode ser feita por escrito e você tem direito a sigilo e proteção contra retaliação. Guarde registros (prints, e-mails, testemunhas).",
+    exemplo: "Você pode enviar um e-mail para o RH descrevendo os fatos com datas e, se necessário, acionar a Delegacia de Crimes Contra a Mulher ou o MPT.",
+    lei: "Art. 223-A, CLT · Portaria MTE 4.219/2022"
+  },
+
+  // ── SALÁRIO ──
+  {
+    termo: "Igualdade salarial",
+    categoria: "salario",
+    preview: "Mesmo salário para o mesmo trabalho",
+    definicao: "Mulheres e homens que exercem a mesma função, com a mesma produtividade e tempo de empresa, têm direito a salário idêntico. A Lei 14.611/2023 reforçou essa obrigação e passou a exigir que empresas com mais de 100 funcionários publiquem relatórios de transparência salarial.",
+    exemplo: "Você descobre que um colega homem na mesma cargo recebe 30% a mais. Você pode exigir equiparação salarial e pedir os valores retroativos.",
+    lei: "Art. 461, CLT · Lei 14.611/2023"
+  },
+  {
+    termo: "Equiparação salarial",
+    categoria: "salario",
+    preview: "Direito de receber o mesmo que o colega de referência",
+    definicao: "Mecanismo jurídico que permite à trabalhadora exigir o mesmo salário de um colega homem (ou outra mulher) que faça trabalho de igual valor, na mesma empresa, na mesma localidade. O colega de referência deve ter até 4 anos de diferença de tempo na função.",
+    exemplo: "Para pedir equiparação salarial na Justiça do Trabalho, identifique o 'paradigma' — o colega que serve de referência — e comprove que os trabalhos são equivalentes.",
+    lei: "Art. 461, CLT · Súmula 6, TST"
+  },
+  {
+    termo: "Discriminação salarial por gênero",
+    categoria: "salario",
+    preview: "Quando o salário menor se deve ao sexo da trabalhadora",
+    definicao: "É ilegal pagar menos a uma mulher pelo simples fato de ser mulher. A discriminação pode ser direta (cargos iguais, salários diferentes sem justificativa) ou indireta (estruturas internas que sistematicamente colocam mulheres em faixas salariais menores).",
+    exemplo: "Se a empresa não consegue justificar tecnicamente a diferença salarial entre você e um colega homem na mesma função, a diferença é ilegal.",
+    lei: "Lei 14.611/2023 · Art. 1º, Lei 9.029/1995"
+  },
+  {
+    termo: "Relatório de transparência salarial",
+    categoria: "salario",
+    preview: "Documento obrigatório para empresas com mais de 100 funcionários",
+    definicao: "Desde a Lei 14.611/2023, empresas com 100 ou mais empregados devem publicar semestralmente um relatório com dados salariais por cargo e gênero. O objetivo é tornar visíveis as desigualdades e forçar a correção. Você pode consultar o relatório da sua empresa.",
+    exemplo: "O relatório deve estar disponível no site do Ministério do Trabalho. Se sua empresa não publicou, pode estar sujeita a multa.",
+    lei: "Art. 5º, Lei 14.611/2023"
+  },
+
+  // ── DEMISSÃO ──
+  {
+    termo: "Demissão sem justa causa",
+    categoria: "demissao",
+    preview: "Quando a empresa encerra o contrato sem motivo disciplinar",
+    definicao: "Rescisão do contrato de trabalho por decisão do empregador, sem que a trabalhadora tenha cometido falta grave. Garante direito a aviso prévio (trabalhado ou indenizado), multa de 40% do FGTS, saldo de salário, férias proporcionais + 1/3 e 13º proporcional.",
+    exemplo: "Se a empresa te demitiu sem explicação, você tem até 2 anos para reclamar verbas rescisórias na Justiça do Trabalho se algo não foi pago corretamente.",
+    lei: "Art. 477 e 487, CLT"
+  },
+  {
+    termo: "Dispensa discriminatória",
+    categoria: "demissao",
+    preview: "Demissão motivada por preconceito",
+    definicao: "É nula a demissão motivada por gravidez, cor, etnia, religião, estado civil, situação familiar, deficiência ou qualquer outra forma de discriminação. A trabalhadora tem direito à reintegração ao emprego ou indenização em dobro das verbas rescisórias.",
+    exemplo: "Se você foi demitida logo após comunicar a gravidez, a lei presume discriminação. O ônus de provar que a demissão não foi discriminatória é da empresa.",
+    lei: "Art. 1º, Lei 9.029/1995"
+  },
+  {
+    termo: "Aviso prévio",
+    categoria: "demissao",
+    preview: "Prazo obrigatório antes da demissão ou pedido de demissão",
+    definicao: "Comunicação antecipada obrigatória de encerramento do contrato. O prazo mínimo é de 30 dias, acrescido de 3 dias por ano de empresa, até o máximo de 90 dias. Se a empresa não quiser que você cumpra o aviso, deve indenizá-lo em dinheiro.",
+    exemplo: "Se você pediu demissão e a empresa liberou imediatamente, não precisa indenizá-la — mas também não receberá pelo período do aviso.",
+    lei: "Art. 487 e 488, CLT"
+  },
+  {
+    termo: "FGTS — Fundo de Garantia",
+    categoria: "demissao",
+    preview: "Depósito mensal que vira indenização na demissão",
+    definicao: "O empregador deposita mensalmente 8% do salário da trabalhadora em conta vinculada do FGTS. Em caso de demissão sem justa causa, a trabalhadora saca o saldo mais multa de 40%. Também pode sacar em caso de doenças graves, compra da casa própria ou aposentadoria.",
+    exemplo: "Confira os depósitos do FGTS mensalmente pelo aplicativo FGTS. Se a empresa não depositou corretamente, você pode reclamar na Caixa Econômica ou na Justiça do Trabalho.",
+    lei: "Lei 8.036/1990 · Art. 18, §1º"
+  },
+  {
+    termo: "Rescisão indireta",
+    categoria: "demissao",
+    preview: "Quando você pede demissão por falta grave do empregador",
+    definicao: "Modalidade em que a trabalhadora encerra o contrato por culpa do empregador — que cometeu falta grave como não pagar salário, exigir serviços além do contrato, reduzir salário sem justificativa ou praticar assédio. Os direitos são os mesmos da demissão sem justa causa.",
+    exemplo: "Sua empresa está há 3 meses sem pagar seu salário. Você pode pedir rescisão indireta na Justiça do Trabalho e receber tudo como se tivesse sido demitida.",
+    lei: "Art. 483, CLT"
+  },
+
+  // ── GERAL ──
+  {
+    termo: "Carteira de Trabalho (CTPS)",
+    categoria: "geral",
+    preview: "Documento que registra o histórico profissional",
+    definicao: "Documento obrigatório para quem trabalha com vínculo formal. Deve ser assinada pelo empregador em até 5 dias úteis após a contratação. Registra salário, função, data de admissão e demissão. Hoje existe também em formato digital (CTPS Digital), vinculada ao CPF.",
+    exemplo: "Se sua empresa não assinar sua carteira, você pode acionar o Ministério do Trabalho. O vínculo informal não significa ausência de direitos — você pode reconhecê-lo na Justiça.",
+    lei: "Art. 13 a 56, CLT"
+  },
+  {
+    termo: "Jornada de trabalho",
+    categoria: "geral",
+    preview: "Limite legal de horas de trabalho por dia e semana",
+    definicao: "A jornada máxima é de 8 horas diárias e 44 horas semanais. Horas extras devem ser pagas com acréscimo mínimo de 50% sobre o valor da hora normal. O intervalo mínimo para refeição em jornadas acima de 6 horas é de 1 hora.",
+    exemplo: "Se você trabalha regularmente mais de 8 horas por dia sem receber horas extras, pode reclamar os valores retroativos dos últimos 5 anos.",
+    lei: "Art. 58 e 59, CLT"
+  },
+  {
+    termo: "Férias",
+    categoria: "geral",
+    preview: "Direito a descanso remunerado anual",
+    definicao: "Após 12 meses de trabalho, a trabalhadora tem direito a 30 dias de férias remuneradas, com acréscimo de 1/3 sobre o salário (o 'terço constitucional'). As férias devem ser comunicadas com 30 dias de antecedência e pagas 2 dias antes do início.",
+    exemplo: "A empresa não pode cancelar suas férias depois de marcadas, salvo em casos excepcionais previstos em lei — e mesmo assim deve indenizá-la.",
+    lei: "Art. 129 a 153, CLT · Art. 7º, XVII, CF"
+  },
+  {
+    termo: "Licença por violência doméstica",
+    categoria: "geral",
+    preview: "Afastamento para mulheres vítimas de violência",
+    definicao: "Mulheres em situação de violência doméstica têm direito a afastamento do trabalho por até 6 meses sem perder o emprego, mediante apresentação de medida protetiva de urgência ou registro de ocorrência.",
+    exemplo: "Se você precisar se afastar para garantir sua segurança ou a dos seus filhos em razão de violência doméstica, a empresa não pode te demitir durante esse período.",
+    lei: "Art. 9º, §2º, Lei 11.340/2006 (Lei Maria da Penha)"
+  },
+  {
+    termo: "Justiça do Trabalho",
+    categoria: "geral",
+    preview: "Onde reclamar violações de direitos trabalhistas",
+    definicao: "Ramo do Judiciário brasileiro responsável por resolver conflitos entre empregados e empregadores. O prazo para reclamar é de 2 anos após o fim do contrato (para relações ativas, pode-se reclamar direitos dos últimos 5 anos). Você pode ser representada por advogado ou ir sozinha (jus postulandi).",
+    exemplo: "Você pode entrar com reclamação trabalhista na Vara do Trabalho da sua cidade, sem advogado, para causas de menor complexidade.",
+    lei: "Art. 791, CLT · Art. 111, CF"
+  },
+  {
+    termo: "Sindicato",
+    categoria: "geral",
+    preview: "Entidade que representa e defende trabalhadores",
+    definicao: "Organização coletiva que representa os trabalhadores de uma categoria profissional. Negocia convenções coletivas, presta assessoria jurídica gratuita e pode intermediar conflitos com o empregador. Toda trabalhadora tem direito de se filiar ao sindicato da sua categoria.",
+    exemplo: "Antes de entrar com uma ação trabalhista, você pode buscar o sindicato da sua categoria para orientação gratuita e tentativa de acordo.",
+    lei: "Art. 511 a 610, CLT · Art. 8º, CF"
+  },
+];
+
+let categoriaAtiva = 'todos';
+
+function renderizar(lista) {
+  const container = document.getElementById('lista');
+  const vazio = document.getElementById('vazio');
+
+  if (lista.length === 0) {
+    container.innerHTML = '';
+    vazio.style.display = 'block';
+    return;
+  }
+
+  vazio.style.display = 'none';
+
+  // Agrupar por letra
+  const grupos = {};
+  lista.forEach(t => {
+    const letra = t.termo[0].toUpperCase();
+    if (!grupos[letra]) grupos[letra] = [];
+    grupos[letra].push(t);
+  });
+
+  const letras = Object.keys(grupos).sort();
+  let html = '';
+
+  letras.forEach(letra => {
+    html += `<div class="secao-letra">${letra}</div>`;
+    grupos[letra].forEach((t, i) => {
+      const tagClass = `tag-${t.categoria}`;
+      const tagLabel = {
+        gestante: '🤱 Gestante',
+        assedio: '🚨 Assédio',
+        salario: '💰 Salário',
+        demissao: '📋 Demissão',
+        geral: '⚖️ Geral'
+      }[t.categoria];
+
+      html += `
+        <div class="card" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="card-header-left">
+              <div class="card-termo">${t.termo}</div>
+              <div class="card-preview">${t.preview}</div>
+            </div>
+            <span class="card-tag ${tagClass}">${tagLabel}</span>
+            <span class="card-chevron">▼</span>
+          </div>
+          <div class="card-body">
+            <p class="definicao">${t.definicao}</p>
+            <div class="exemplo"><strong>Exemplo prático</strong>${t.exemplo}</div>
+            <span class="lei-ref">📜 ${t.lei}</span>
+          </div>
+        </div>`;
+    });
+  });
+
+  container.innerHTML = html;
+}
+
+function filtrar() {
+  const q = document.getElementById('busca').value.toLowerCase().trim();
+  let lista = categoriaAtiva === 'todos' ? termos : termos.filter(t => t.categoria === categoriaAtiva);
+  if (q) lista = lista.filter(t =>
+    t.termo.toLowerCase().includes(q) ||
+    t.definicao.toLowerCase().includes(q) ||
+    t.preview.toLowerCase().includes(q)
+  );
+  renderizar(lista);
+}
+
+function filtrarCategoria(cat, btn) {
+  categoriaAtiva = cat;
+  document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
+  btn.classList.add('ativo');
+  filtrar();
+}
+
+function toggleCard(card) {
+  card.classList.toggle('aberto');
+}
+
+// Init
+renderizar(termos);
+</script>
+</body>
+</html>
